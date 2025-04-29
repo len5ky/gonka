@@ -1,0 +1,14 @@
+name: Sanity Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  sanity-tests:
+    uses: ./.github/workflows/test-workflow.yml
+    with:
+      test_name: "Sanity Tests"
+      test_command: "run-sanity"
