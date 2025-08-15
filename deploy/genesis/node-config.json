@@ -1,6 +1,6 @@
 [
   {
-    "id": "mlnode1",
+    "id": "node1",
     "host": "inference",
     "inference_port": 5000,
     "poc_port": 8080,
@@ -9,24 +9,9 @@
       "Qwen/Qwen2.5-7B-Instruct": {
         "args": [
           "--quantization",
-          "fp8"
-        ]
-      }
-    }
-  },
-  {
-    "id": "mlnode2",
-    "host": "10.0.0.2",
-    "inference_port": 5050,
-    "poc_port": 8080,
-    "max_concurrent": 500,
-    "models": {
-      "Qwen/QwQ-32B": {
-        "args": [
-          "--quantization",
           "fp8",
-          "--kv-cache-dtype",
-          "fp8"
+          "--gpu-memory-utilization",
+          "0.9"
         ]
       }
     }
