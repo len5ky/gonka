@@ -175,7 +175,7 @@
           "coins": [
             {
               "denom": "nicoin",
-              "amount": "160000000000000000"
+              "amount": "1"
             }
           ]
         },
@@ -192,7 +192,7 @@
       "supply": [
         {
           "denom": "nicoin",
-          "amount": "160000000000000009"
+          "amount": "10"
         }
       ],
       "denom_metadata": [
@@ -476,9 +476,9 @@
             "exponent": -1
           },
           "top_miner_poc_qualification": "10",
-          "work_vesting_period": "0",
-          "reward_vesting_period": "0",
-          "top_miner_vesting_period": "0"
+          "work_vesting_period": "180",
+          "reward_vesting_period": "180",
+          "top_miner_vesting_period": "180"
         },
         "collateral_params": {
           "slash_fraction_invalid": {
@@ -505,7 +505,7 @@
         },
         "bitcoin_reward_params": {
           "use_bitcoin_rewards": true,
-          "initial_epoch_reward": "285000000000000",
+          "initial_epoch_reward": "323000000000000",
           "decay_rate": {
             "value": "-475",
             "exponent": -6
@@ -557,16 +557,27 @@
       },
       "genesis_only_params": {
         "total_supply": "1000000000000000000",
-        "originator_supply": "160000000000000000",
-        "top_reward_amount": "120000000000000000",
-        "standard_reward_amount": "600000000000000000",
+        "originator_supply": "200000000000000000",
+        "top_reward_amount": "0",
+        "standard_reward_amount": "680000000000000000",
         "pre_programmed_sale_amount": "120000000000000000",
         "top_rewards": 3,
         "supply_denom": "nicoin",
         "top_reward_period": "31536000",
         "top_reward_payouts": "12",
         "top_reward_payouts_per_miner": "4",
-        "top_reward_max_duration": "126144000"
+        "top_reward_max_duration": "126144000",
+        "max_individual_power_percentage": {
+          "value": "25",
+          "exponent": "-2"
+        },
+        "genesis_guardian_enabled": true,
+        "genesis_guardian_network_maturity_threshold": "2000000",
+        "genesis_guardian_multiplier": {
+          "value": "52",
+          "exponent": "-2"
+        },
+        "genesis_guardian_addresses": []
       },
       "model_list": [
         {
