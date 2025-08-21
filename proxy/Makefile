@@ -7,8 +7,11 @@ SET_LATEST := $(shell if [ "$(SET_LATEST)" = "1" ]; then echo 1; else echo 0; fi
 define DOCKER_BUILD
 	@echo "--> building proxy docker image"
 	@echo "    	platform: $(PLATFORM)"
-	@docker build \
+	@DOCKER_BUILDKIT=1 \
+	docker build \
 		--platform $(PLATFORM) \
+		$(if $(BUILDX_CACHE_FROM),--cache-from $(BUILDX_CACHE_FROM),) \
+		$(if $(BUILDX_CACHE_TO),--cache-to $(BUILDX_CACHE_TO),) \
 		-f $(DOCKER_FILE) \
 		. \
 		-t $(DOCKER_TAG)
