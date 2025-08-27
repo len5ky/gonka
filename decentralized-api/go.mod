@@ -15,7 +15,7 @@ require (
 	github.com/cosmos/ibc-go/v8 v8.2.0
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0
 	github.com/golang/protobuf v1.5.4
-	github.com/gonka-ai/gonka-utils/go v0.0.0-20250825124745-4c26bd0e6a76
+	github.com/gonka-ai/gonka-utils/go v0.0.0-20250827130032-060fa8a30bc4
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/ignite/cli/v28 v28.11.0
@@ -261,5 +261,6 @@ require (
 replace (
 	github.com/cosmos/cosmos-sdk => github.com/product-science/cosmos-sdk v0.53.3-ps5
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
+	github.com/productscience/common => ./../common
 	github.com/productscience/inference => ../inference-chain
 )
