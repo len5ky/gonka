@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v6.33.1
-// source: subnet/v1/state.proto
+// source: proto/subnet/v1/state.proto
 
 package types
 
@@ -35,7 +35,7 @@ type HostStatsProto struct {
 
 func (x *HostStatsProto) Reset() {
 	*x = HostStatsProto{}
-	mi := &file_subnet_v1_state_proto_msgTypes[0]
+	mi := &file_proto_subnet_v1_state_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -47,7 +47,7 @@ func (x *HostStatsProto) String() string {
 func (*HostStatsProto) ProtoMessage() {}
 
 func (x *HostStatsProto) ProtoReflect() protoreflect.Message {
-	mi := &file_subnet_v1_state_proto_msgTypes[0]
+	mi := &file_proto_subnet_v1_state_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +60,7 @@ func (x *HostStatsProto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HostStatsProto.ProtoReflect.Descriptor instead.
 func (*HostStatsProto) Descriptor() ([]byte, []int) {
-	return file_subnet_v1_state_proto_rawDescGZIP(), []int{0}
+	return file_proto_subnet_v1_state_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *HostStatsProto) GetSlotId() uint32 {
@@ -114,7 +114,7 @@ type HostStatsMapProto struct {
 
 func (x *HostStatsMapProto) Reset() {
 	*x = HostStatsMapProto{}
-	mi := &file_subnet_v1_state_proto_msgTypes[1]
+	mi := &file_proto_subnet_v1_state_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -126,7 +126,7 @@ func (x *HostStatsMapProto) String() string {
 func (*HostStatsMapProto) ProtoMessage() {}
 
 func (x *HostStatsMapProto) ProtoReflect() protoreflect.Message {
-	mi := &file_subnet_v1_state_proto_msgTypes[1]
+	mi := &file_proto_subnet_v1_state_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -139,7 +139,7 @@ func (x *HostStatsMapProto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HostStatsMapProto.ProtoReflect.Descriptor instead.
 func (*HostStatsMapProto) Descriptor() ([]byte, []int) {
-	return file_subnet_v1_state_proto_rawDescGZIP(), []int{1}
+	return file_proto_subnet_v1_state_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *HostStatsMapProto) GetEntries() []*HostStatsProto {
@@ -166,13 +166,14 @@ type InferenceRecordProto struct {
 	StartedAt     int64                  `protobuf:"varint,13,opt,name=started_at,json=startedAt,proto3" json:"started_at,omitempty"`
 	VotesValid    uint32                 `protobuf:"varint,14,opt,name=votes_valid,json=votesValid,proto3" json:"votes_valid,omitempty"`
 	VotesInvalid  uint32                 `protobuf:"varint,15,opt,name=votes_invalid,json=votesInvalid,proto3" json:"votes_invalid,omitempty"`
+	VotedSlots    []uint32               `protobuf:"varint,16,rep,packed,name=voted_slots,json=votedSlots,proto3" json:"voted_slots,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *InferenceRecordProto) Reset() {
 	*x = InferenceRecordProto{}
-	mi := &file_subnet_v1_state_proto_msgTypes[2]
+	mi := &file_proto_subnet_v1_state_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -184,7 +185,7 @@ func (x *InferenceRecordProto) String() string {
 func (*InferenceRecordProto) ProtoMessage() {}
 
 func (x *InferenceRecordProto) ProtoReflect() protoreflect.Message {
-	mi := &file_subnet_v1_state_proto_msgTypes[2]
+	mi := &file_proto_subnet_v1_state_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -197,7 +198,7 @@ func (x *InferenceRecordProto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InferenceRecordProto.ProtoReflect.Descriptor instead.
 func (*InferenceRecordProto) Descriptor() ([]byte, []int) {
-	return file_subnet_v1_state_proto_rawDescGZIP(), []int{2}
+	return file_proto_subnet_v1_state_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *InferenceRecordProto) GetInferenceId() uint64 {
@@ -305,6 +306,13 @@ func (x *InferenceRecordProto) GetVotesInvalid() uint32 {
 	return 0
 }
 
+func (x *InferenceRecordProto) GetVotedSlots() []uint32 {
+	if x != nil {
+		return x.VotedSlots
+	}
+	return nil
+}
+
 type InferencesMapProto struct {
 	state         protoimpl.MessageState  `protogen:"open.v1"`
 	Entries       []*InferenceRecordProto `protobuf:"bytes,1,rep,name=entries,proto3" json:"entries,omitempty"`
@@ -314,7 +322,7 @@ type InferencesMapProto struct {
 
 func (x *InferencesMapProto) Reset() {
 	*x = InferencesMapProto{}
-	mi := &file_subnet_v1_state_proto_msgTypes[3]
+	mi := &file_proto_subnet_v1_state_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -326,7 +334,7 @@ func (x *InferencesMapProto) String() string {
 func (*InferencesMapProto) ProtoMessage() {}
 
 func (x *InferencesMapProto) ProtoReflect() protoreflect.Message {
-	mi := &file_subnet_v1_state_proto_msgTypes[3]
+	mi := &file_proto_subnet_v1_state_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -339,7 +347,7 @@ func (x *InferencesMapProto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use InferencesMapProto.ProtoReflect.Descriptor instead.
 func (*InferencesMapProto) Descriptor() ([]byte, []int) {
-	return file_subnet_v1_state_proto_rawDescGZIP(), []int{3}
+	return file_proto_subnet_v1_state_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *InferencesMapProto) GetEntries() []*InferenceRecordProto {
@@ -349,11 +357,11 @@ func (x *InferencesMapProto) GetEntries() []*InferenceRecordProto {
 	return nil
 }
 
-var File_subnet_v1_state_proto protoreflect.FileDescriptor
+var File_proto_subnet_v1_state_proto protoreflect.FileDescriptor
 
-const file_subnet_v1_state_proto_rawDesc = "" +
+const file_proto_subnet_v1_state_proto_rawDesc = "" +
 	"\n" +
-	"\x15subnet/v1/state.proto\x12\tsubnet.v1\"\xd7\x01\n" +
+	"\x1bproto/subnet/v1/state.proto\x12\tsubnet.v1\"\xd7\x01\n" +
 	"\x0eHostStatsProto\x12\x17\n" +
 	"\aslot_id\x18\x01 \x01(\rR\x06slotId\x12\x16\n" +
 	"\x06missed\x18\x02 \x01(\rR\x06missed\x12\x18\n" +
@@ -362,7 +370,7 @@ const file_subnet_v1_state_proto_rawDesc = "" +
 	"\x14required_validations\x18\x05 \x01(\rR\x13requiredValidations\x123\n" +
 	"\x15completed_validations\x18\x06 \x01(\rR\x14completedValidations\"H\n" +
 	"\x11HostStatsMapProto\x123\n" +
-	"\aentries\x18\x01 \x03(\v2\x19.subnet.v1.HostStatsProtoR\aentries\"\x87\x04\n" +
+	"\aentries\x18\x01 \x03(\v2\x19.subnet.v1.HostStatsProtoR\aentries\"\xa8\x04\n" +
 	"\x14InferenceRecordProto\x12!\n" +
 	"\finference_id\x18\x01 \x01(\x04R\vinferenceId\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\rR\x06status\x12#\n" +
@@ -384,30 +392,32 @@ const file_subnet_v1_state_proto_rawDesc = "" +
 	"started_at\x18\r \x01(\x03R\tstartedAt\x12\x1f\n" +
 	"\vvotes_valid\x18\x0e \x01(\rR\n" +
 	"votesValid\x12#\n" +
-	"\rvotes_invalid\x18\x0f \x01(\rR\fvotesInvalid\"O\n" +
+	"\rvotes_invalid\x18\x0f \x01(\rR\fvotesInvalid\x12\x1f\n" +
+	"\vvoted_slots\x18\x10 \x03(\rR\n" +
+	"votedSlots\"O\n" +
 	"\x12InferencesMapProto\x129\n" +
 	"\aentries\x18\x01 \x03(\v2\x1f.subnet.v1.InferenceRecordProtoR\aentriesB\x0eZ\fsubnet/typesb\x06proto3"
 
 var (
-	file_subnet_v1_state_proto_rawDescOnce sync.Once
-	file_subnet_v1_state_proto_rawDescData []byte
+	file_proto_subnet_v1_state_proto_rawDescOnce sync.Once
+	file_proto_subnet_v1_state_proto_rawDescData []byte
 )
 
-func file_subnet_v1_state_proto_rawDescGZIP() []byte {
-	file_subnet_v1_state_proto_rawDescOnce.Do(func() {
-		file_subnet_v1_state_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_subnet_v1_state_proto_rawDesc), len(file_subnet_v1_state_proto_rawDesc)))
+func file_proto_subnet_v1_state_proto_rawDescGZIP() []byte {
+	file_proto_subnet_v1_state_proto_rawDescOnce.Do(func() {
+		file_proto_subnet_v1_state_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_proto_subnet_v1_state_proto_rawDesc), len(file_proto_subnet_v1_state_proto_rawDesc)))
 	})
-	return file_subnet_v1_state_proto_rawDescData
+	return file_proto_subnet_v1_state_proto_rawDescData
 }
 
-var file_subnet_v1_state_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_subnet_v1_state_proto_goTypes = []any{
+var file_proto_subnet_v1_state_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_subnet_v1_state_proto_goTypes = []any{
 	(*HostStatsProto)(nil),       // 0: subnet.v1.HostStatsProto
 	(*HostStatsMapProto)(nil),    // 1: subnet.v1.HostStatsMapProto
 	(*InferenceRecordProto)(nil), // 2: subnet.v1.InferenceRecordProto
 	(*InferencesMapProto)(nil),   // 3: subnet.v1.InferencesMapProto
 }
-var file_subnet_v1_state_proto_depIdxs = []int32{
+var file_proto_subnet_v1_state_proto_depIdxs = []int32{
 	0, // 0: subnet.v1.HostStatsMapProto.entries:type_name -> subnet.v1.HostStatsProto
 	2, // 1: subnet.v1.InferencesMapProto.entries:type_name -> subnet.v1.InferenceRecordProto
 	2, // [2:2] is the sub-list for method output_type
@@ -417,26 +427,26 @@ var file_subnet_v1_state_proto_depIdxs = []int32{
 	0, // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_subnet_v1_state_proto_init() }
-func file_subnet_v1_state_proto_init() {
-	if File_subnet_v1_state_proto != nil {
+func init() { file_proto_subnet_v1_state_proto_init() }
+func file_proto_subnet_v1_state_proto_init() {
+	if File_proto_subnet_v1_state_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_subnet_v1_state_proto_rawDesc), len(file_subnet_v1_state_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_subnet_v1_state_proto_rawDesc), len(file_proto_subnet_v1_state_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_subnet_v1_state_proto_goTypes,
-		DependencyIndexes: file_subnet_v1_state_proto_depIdxs,
-		MessageInfos:      file_subnet_v1_state_proto_msgTypes,
+		GoTypes:           file_proto_subnet_v1_state_proto_goTypes,
+		DependencyIndexes: file_proto_subnet_v1_state_proto_depIdxs,
+		MessageInfos:      file_proto_subnet_v1_state_proto_msgTypes,
 	}.Build()
-	File_subnet_v1_state_proto = out.File
-	file_subnet_v1_state_proto_goTypes = nil
-	file_subnet_v1_state_proto_depIdxs = nil
+	File_proto_subnet_v1_state_proto = out.File
+	file_proto_subnet_v1_state_proto_goTypes = nil
+	file_proto_subnet_v1_state_proto_depIdxs = nil
 }
