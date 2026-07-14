@@ -13,6 +13,7 @@
   "escrow": {
     "source_protocol_version": "1",
     "protocol_version": "1",
+    "route_prefix": "",
     "private_key_env": "DEVSHARD_PRIVATE_KEY"
   },
   "main": {
